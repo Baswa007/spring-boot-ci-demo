@@ -21,7 +21,7 @@ jobs:
 
     - name: Build Jar
       run: |
-        chmod +X ./mvnw
+        chmod +x ./mvnw
         ./mvnw clean package -DksipTests
 
     - name: Login into Docker Hub
@@ -31,7 +31,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
     - name: Build Docker Image
-      run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/spring-boot-ci-demo:latest
+      run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/spring-boot-ci-demo:latest .
 
     - name: Push Image to Docker Hub
       run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/spring-boot-ci-demo:latest
