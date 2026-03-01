@@ -12,7 +12,7 @@ public class PipelineCheckController {
     public Map<String, String> sayHello() {
         HashMap<String, String> map = new HashMap<>();
         map.put("status", "Success");
-        map.put("message", "Hello from CI/CD Pipeline!--- Raj");
+        map.put("message", "Hello from CI/CD Pipeline!--- Raj kokle");
         map.put("version", "1.0.0");
         return map;
     }
