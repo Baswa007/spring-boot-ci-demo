@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      run: actions/checkout@v4
+      uses: actions/checkout@v4
 
     - name: Setup Java
       uses: actions/setup-java@v5
@@ -20,7 +20,9 @@ jobs:
         java-version: '21'
 
     - name: Build Jar
-      run: /mvnw clean package -DksipTests
+      run: |
+        chmod +X ./mvnw
+        ./mvnw clean package -DksipTests
 
     - name: Login into Docker Hub
       uses: docker/login-action@v3
